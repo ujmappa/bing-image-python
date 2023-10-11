@@ -10,7 +10,7 @@ for /F "usebackq tokens=*" %%l in ("prompts.txt") do (
 	echo.
 	echo Executing prompt: !prompt!
 
-	echo python -m BingImageCreator -U "!userid!" --prompt "!prompt!" --output-dir .\output
+	python -m BingImageCreator -U "!userid!" --prompt "!prompt!" --output-dir .\output
 
 	set prompt=!prompt: =_!
 	set prompt=!prompt:.=_!
