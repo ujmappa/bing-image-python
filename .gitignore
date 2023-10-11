@@ -1,5 +1,3 @@
 backup/*
 images/*
 output/*
-
-!*/.gitfolder

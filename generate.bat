@@ -18,7 +18,7 @@ for /F "usebackq tokens=*" %%l in ("prompts.txt") do (
 	set prompt=!prompt:;=_!
 
 	for %%f in (.\output\*) do (
-		call .\uuid.bat uuid
+		FOR /f "tokens=*" %%g IN ('.\uuid.bat') do (set uuid=%%g)
 		move "%%f" ".\images\!prompt!_!uuid!.jpg" > nul 2> nul
 	)
 )
