@@ -18,7 +18,7 @@ for /F "usebackq tokens=*" %%l in ("prompts.txt") do (
 	set prompt=!prompt:;=_!
 
 	for %%f in (.\output\*) do (
-		FOR /f "tokens=*" %%g IN ('.\uuid.bat') do (set uuid=%%g)
+		for /f "tokens=*" %%g IN ('python -c "import uuid; print(uuid.uuid4())"') do (set uuid=%%g)
 		move "%%f" ".\images\!prompt!_!uuid!.jpg" > nul 2> nul
 	)
 )
