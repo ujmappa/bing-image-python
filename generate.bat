@@ -1,10 +1,13 @@
 @echo off
 setlocal enabledelayedexpansion
 
+mkdir .\output > nul 2> nul
+mkdir .\images > nul 2> nul
+del .\output\* /f /q
+
 set /p userid=<userid.txt
 
-del .\output\* /f /q
-for /F "usebackq tokens=*" %%l in ("prompts.txt") do (
+for /f "usebackq tokens=*" %%l in ("prompts.txt") do (
 	set prompt=%%l
 
 	echo.
